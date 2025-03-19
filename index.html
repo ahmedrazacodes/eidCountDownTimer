@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffffff, #6c44ff);
+    text-align: center;
+
+}
+
+.container {
+    width: 45%;
+    height: auto;
+    background: rgba(19, 15, 15, 0.25);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.time-box {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.time {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    width: 12%;
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+    color: black;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.973);
+}
+
+span {
+    font-size: 12px;
+}
+
+
+button {
+    margin-top: 20px;
+    width: 25%;
+    height: 5vh;
+    border: none;
+    background: #f7f7f7;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.973);
+}
+
+button:hover {
+    background: #000000;
+    color: white;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        width: 60%;
+    }
+
+    h1{
+        font-size: 16px;
+    }
+    
+    .time-box {
+        justify-content: center;
+    }
+
+    .time {
+        width: 60px;
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 992px) {
+    h1{
+        font-size: 18px;
+    }
+
+}
+</style>
+<body>
+    
+
+    <div class="container">
+        <h1>Time Left for Eid Celebrations! 🌙✨🎉</h1>
+
+        <div class="time-box">
+            <div class="time">
+                <p class="days">0</p>
+                <span>Days</span>
+            </div>
+
+            <div class="time">
+                <p class="hours">0</p>
+                <span>Hours</span>
+            </div>
+            <div class="time">
+                <p class="min">0</p>
+                <span>Minutes</span>
+            </div>
+            <div class="time">
+                <p class="sec">0</p>
+                <span>Seconds</span>
+            </div>
+            <div class="time">
+                <p class="millsec">0</p>
+                <span>Millisec</span>
+            </div>
+        </div>
+        
+        <button onclick="start()">START</button>
+
+
+    <script>
+
+
+let showDays = document.querySelector(".days")
+let showHours = document.querySelector(".hours")
+let showMinutes = document.querySelector(".min")
+let showSeconds = document.querySelector(".sec")
+let showMillseconds = document.querySelector(".millsec")
+
+
+function start(){
+
+function abc() {
+
+let now = new Date()
+
+var remain = new Date("March 30, 2025  12:00:00")
+
+
+let difference = remain-now
+let days = Math.floor(difference / (1000 * 60 * 60 * 24));
+let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+let seconds = Math.floor((difference % (1000 * 60)) / 1000);
+let milliseconds = difference % 1000;
+
+    showDays.innerHTML = days
+    showHours.innerHTML = hours
+    showMinutes.innerHTML = minutes
+    showSeconds.innerHTML = seconds
+    showMillseconds.innerHTML = milliseconds;
+
+
+}
+
+setInterval(abc, 10);
+}
+
+    </script>
+</body>
+</html>
